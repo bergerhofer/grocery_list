@@ -1,23 +1,28 @@
-<h1>Listing list_items</h1>
+<div class="page-header">
+<h1>Your Grocery List</h1>
+</div>
 
-<table>
+<table class="table table-hover">
+  <thead>
   <tr>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Items</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
+</thead>
 
 <% @list_items.each do |list_item| %>
+
+ <tbody>
   <tr>
-    <td><%= list_item.content %></td>
-    <td><%= link_to 'Show', list_item %></td>
+    <td><%= link_to list_item.content, list_item %></td>
     <td><%= link_to 'Edit', edit_list_item_path(list_item) %></td>
-    <td><%= link_to 'Destroy', list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
 
-<%= link_to 'New List item', new_list_item_path %>
+<%= link_to 'Add an item', new_list_item_path %> 
